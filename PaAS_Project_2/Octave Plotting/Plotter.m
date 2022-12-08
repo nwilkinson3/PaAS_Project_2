@@ -1,11 +1,11 @@
 function points = Plotter ()
-  first = input("Start of plot: ");
-  last = input("End of plot: ");
+  first = input("Start index of plot: ",);
+  last = input("End index of plot: ");
   x = [first:.01:last];
   y = sin(pi * x);
-  plot(x,y);
   points = [x ; y];
   points = points';
-  csvwrite("plot.csv", points);
+  csvwrite(strcat(input("Enter name of output file (assumes .csv): ", "s"), ".csv"), points);
+  plot(points(:,1), points(:,2));
 endfunction
 
